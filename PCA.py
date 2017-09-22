@@ -6,11 +6,10 @@ Created on Mon Sep 18 15:31:21 2017
 """
 import numpy as np
 import pandas as pn
-from numpy import mean,cov,dot,linalg,argsort,size,flipud
 import matplotlib.pyplot as pit
 
 #read csv file
-filereader = pn.read_csv("dataset_1.csv")
+filereader = pn.read_csv("C:\Users\kulkarniyugandhara\Documents\UNCC - MS\Sem 3\Machine Learning\Python Code\dataset_1.csv")
 dataf = pn.DataFrame(filereader)
 inputmatrix = dataf.as_matrix()
 
@@ -24,8 +23,8 @@ covarMatrix = np.cov(meancentered.T)
 #calculate eigenvalues and eigenvectors
 eigenvalues,eignevectors = np.linalg.eig(covarMatrix)
 
-#sorting eigenvalues - descending
-temp = argsort(eigenvalues)
+#sorting eigenvalues - descending order
+temp = np.argsort(eigenvalues)
 temp = temp[::-1]
 eignevectors = eignevectors[:,temp]
 eigenvalues = eigenvalues[temp]
